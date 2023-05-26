@@ -12,7 +12,8 @@ def get_domainIP(config, rootdomain, subdomain):
     except:
         domain = rootdomain if subdomain == "" else subdomain + "." + rootdomain
         print("Something went wrong while trying to retrieve the ip address of {}.".format(domain))
-        print("Response:", response)
+        try: print("Response:", response)
+        except: print("No internet connection available.")
         sys.exit(1)
 
 
@@ -23,7 +24,8 @@ def get_myIP(config):
         return response["yourIp"]
     except:
         print("Something went wrong while trying to retrieve my ip address.")
-        print("Response:", response)
+        try: print("Response:", response)
+        except: print("No internet connection available.")
         sys.exit(1)
 
 
@@ -39,7 +41,8 @@ def update_record(config, rootdomain, subdomain, myIP):
     except:
         domain = rootdomain if subdomain == "" else subdomain + "." + rootdomain
         print("Something went wrong while trying to update the ip address of {}.".format(domain))
-        print("Response:", response)
+        try: print("Response:", response)
+        except: print("No internet connection available.")
         sys.exit(1)
 
 
